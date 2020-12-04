@@ -124,3 +124,12 @@ function checkAnswer(answer, actualAnswer) {
     console.log(chalk.bgRed.bold(answer), chalk.bgRed.bold("Wrong:("));
   }
 }
+
+// this function adjust level 
+function setLevel(levelArray) {
+  for (let i = 0; i < levelArray.length; i++) {
+    let current = levelArray[i];
+    askQuestion(current.question, current.answer, current.options);
+    console.log("Your score is: ", score);
+  }
+}
