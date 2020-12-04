@@ -133,3 +133,26 @@ function setLevel(levelArray) {
     console.log("Your score is: ", score);
   }
 }
+
+// Carrier program
+const userName = readlineSync.question("Enter Your Name: ");
+
+if (score < 5) {
+  setLevel(levelOneQuestions);
+  if (score >= 5) {
+    console.log(chalk.black.bgMagenta.bold("Congratulations! You Unlock Level 2: "))
+    setLevel(levelSecondQuestions);
+    if (score >= 8) {
+      console.log(chalk.black.bgMagenta.bold("Congratulations! You Unlock Level 3: "))
+      setLevel(levelThreeQuestions);
+    }
+  }
+}
+
+CheckhighScore(userName, score);
+
+// Print HighScores
+console.log("-------- High Scores: ---------");
+for (let i = 0; i < highScorers.length; i++) {
+  console.log("Name:", highScorers[i].name, ", Score: ", highScorers[i].score);
+}
