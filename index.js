@@ -104,3 +104,23 @@ function CheckhighScore(name, score) {
     }
   }
 }
+
+// this function ask questions, check answers and update score.
+function askQuestion(question, answer, options) {
+  if (options) {
+    let ask = readlineSync.keyInSelect(options, chalk.blue.underline.bold(question));
+    checkAnswer(options[ask], answer);
+  } else {
+    let ask = readlineSync.keyInYN(question);
+    checkAnswer(ask, answer);
+  }
+}
+
+function checkAnswer(answer, actualAnswer) {
+  if (answer === actualAnswer) {
+    score = score + 1;
+    console.log(chalk.bgGreen.bold(answer), chalk.bgGreen.bold("Right Woohooo:)"));
+  } else {
+    console.log(chalk.bgRed.bold(answer), chalk.bgRed.bold("Wrong:("));
+  }
+}
